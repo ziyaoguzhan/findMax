@@ -1,0 +1,57 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class zzz {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter of numberofpyramidlines and press enter and write each value and press enter again");
+		Scanner myInt = new Scanner(System.in);
+		int numberofpyramidlines = myInt.nextInt();
+		int[][] intArray = new int[numberofpyramidlines][numberofpyramidlines];
+		int t = 1;
+		for (int i = 1; i < numberofpyramidlines; i++) {
+			t++;
+
+			if (t == numberofpyramidlines) {
+				for (int j = 0; j < numberofpyramidlines; j++) {
+
+					for (int k = 0; k < j + 1; k++) {
+						int a = myInt.nextInt();
+						intArray[j][k] = a;
+
+					}
+				}
+
+				break;
+			}
+		}
+
+		System.out.println(Arrays.deepToString(intArray));
+		System.out.println(findMax(intArray, numberofpyramidlines - 1, numberofpyramidlines - 1));
+	}
+
+	static int findMax(int intArray[][], int m, int n) {
+
+		for (int i = m - 1; i >= 0; i--) {
+			for (int j = 0; j <= i; j++) {
+
+				int y = intArray[i + 1][j];
+                int a=0;
+				if (intArray[i + 1][j] > intArray[i + 1][j + 1]) {
+					for (int u = 2; u < y; u++) {
+						if (intArray[i + 1][j] % intArray[i + 1][j] == 0) {
+							 a=intArray[i+1][j];
+						}
+						else 
+							a=intArray[i][j];
+					}
+					intArray[i][j] += a;
+				}
+				
+			}
+
+		}
+		return intArray[0][0];
+	}
+}
