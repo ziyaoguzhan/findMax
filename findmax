@@ -5,7 +5,7 @@ public class zzz {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Enter of numberofpyramidlines and press enter and write each value and press enter again");
+		System.out.println("Enter of numberofpyramidlines and press enter and write each value and press enter again after the write row number you can do copy paste");
 		Scanner myInt = new Scanner(System.in);
 		int numberofpyramidlines = myInt.nextInt();
 		int[][] intArray = new int[numberofpyramidlines][numberofpyramidlines];
