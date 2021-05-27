@@ -1,11 +1,12 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class zzz {
+public class findmax {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Enter of numberofpyramidlines and press enter and write each value and press enter again after the write row number you can do copy paste");
+		System.out.println(
+				"Enter of numberofpyramidlines and press enter and write each value and press enter again after the write row number you can do copy paste");
 		Scanner myInt = new Scanner(System.in);
 		int numberofpyramidlines = myInt.nextInt();
 		int[][] intArray = new int[numberofpyramidlines][numberofpyramidlines];
@@ -37,21 +38,38 @@ public class zzz {
 			for (int j = 0; j <= i; j++) {
 
 				int y = intArray[i + 1][j];
-                int a=0;
-				if (intArray[i + 1][j] > intArray[i + 1][j + 1]) {
-					for (int u = 2; u < y; u++) {
-						if (intArray[i + 1][j] % intArray[i + 1][j] == 0) {
-							 a=intArray[i+1][j];
+				int a = 0;
+
+				for (int u = 2; u < y; u++) {
+
+					if (intArray[i + 1][j] > intArray[i + 1][j + 1]) {
+						for (int k = 2; k <= Math.sqrt(intArray[i + 1][j]); k++) {
+							if (intArray[i + 1][j] % k == 0) {
+								a = intArray[i + 1][j];
+							}
+
 						}
-						else 
-							a=intArray[i][j];
 					}
-					intArray[i][j] += a;
+					else if(intArray[i + 1][j] < intArray[i + 1][j + 1]){
+					for (int l = 2; l <= Math.sqrt(intArray[i + 1][j+1]); l++) {
+						if (intArray[i + 1][j+1] % l == 0) {
+							
+						}a = intArray[i + 1][j+1];
+					}
+						
+
+					}
+					else {
+					break;
+					}
 				}
-				
+
+				intArray[i][j] += a;
 			}
 
 		}
+
 		return intArray[0][0];
+
 	}
 }
